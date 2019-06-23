@@ -36,5 +36,7 @@ namespace CDP.Core.Models
 
         public IReadOnlyList<Meal> GetTodayMeals => _todayMeals;
         public IReadOnlyList<Meal> GetNewMeals => _newMeals.ToList().AsReadOnly();
+
+        public int GetTodayMealsCalories => _todayMeals.Sum(m => (m.Weight * m.Product.CaloriesPer100g) / 100);
     }
 }
